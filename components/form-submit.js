@@ -1,10 +1,11 @@
 'use client';
-import { useActionState } from 'react';
+// import { useActionState } from 'react';
 
-export default function FormSubmit() {
-  const { status } = useActionState();
+export default function FormSubmit({ isPending }) {
+  // const [isPending] = useActionState();
 
-  if (status === 'pending') {
+  if (isPending) {
+    console.log('isPending:', isPending);
     return <p className="form-actions">Sending...</p>;
   }
   return (

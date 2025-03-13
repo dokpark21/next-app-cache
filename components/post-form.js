@@ -4,7 +4,7 @@ import { useActionState } from 'react';
 import FormSubmit from '@/components/form-submit';
 
 export default function PostForm({ onSubmit }) {
-  const [state, formAction] = useActionState(onSubmit, {}); // client side
+  const [state, formAction, isPending] = useActionState(onSubmit, {}); // client side
 
   return (
     <>
@@ -27,7 +27,7 @@ export default function PostForm({ onSubmit }) {
           <label htmlFor="content">Content</label>
           <textarea id="content" name="content" rows="5" />
         </p>
-        <FormSubmit />
+        <FormSubmit isPending={isPending} />
         {state.errors && (
           <ul className="form-errors">
             {state.errors.map((error) => (
